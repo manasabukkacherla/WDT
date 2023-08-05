@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bicycle Rental System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #1a0dab;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 50px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .rent-form {
+            margin-bottom: 20px;
+        }
+
+        .rent-info {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bicycle Rental System</h1>
+
+    <div class="rent-form">
+        <label for="hours">Rent a bicycle for:</label>
+        <input type="number" id="hours" min="1" value="1">
+        <span>hour(s)</span>
+        <input type="submit" value="Rent" onclick="rentBicycle()">
+    </div>
+
+    <div class="rent-info" id="rent-info">
+        <p>You rented a bicycle for <span id="rented-hours">1</span> hour(s).</p>
+        <p>Total cost: $<span id="total-cost">5</span></p>
+        <p>Enjoy your ride!</p>
+    </div>
+
+    <script>
+        function rentBicycle() {
+            const hours = parseInt(document.getElementById('hours').value);
+            const totalCost = 5 * hours;
+
+            document.getElementById('rented-hours').textContent = hours;
+            document.getElementById('total-cost').textContent = totalCost;
+
+            document.querySelector('.rent-form').style.display = 'none';
+            document.querySelector('.rent-info').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
